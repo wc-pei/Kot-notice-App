@@ -40,6 +40,8 @@ const postToSlack = () => {
     clockOut[0].addEventListener('click', () => {
         payLoad(workStatus.finish);
     }, false);
+
+    window.alert(`${slackInfo.channel}チャンネルに打刻メッセージを送りました。`);
 };
 
 postToSlack();
