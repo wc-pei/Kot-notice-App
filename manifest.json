@@ -1,0 +1,13 @@
+{
+  "name": "Kot-notice App",
+  "author": "liming.pei",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "King of timeとslackの拡張機能です。",
+  "content_scripts": [
+      {
+          "matches": [ "https://s2.kingtime.jp/independent/recorder/personal/" ],
+          "js": [ "./js/app.js" ]
+      }
+  ]
+}
