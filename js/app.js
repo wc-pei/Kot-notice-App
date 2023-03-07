@@ -6,7 +6,9 @@ const slackInfo = {
 
 const workStatus = {
     work_start: '出勤',
-    work_finish: '退勤'
+    work_finish: '退勤',
+    remote_start: ':remote_work:',
+    remote_finish: ':remotework_end_owari:'
 };
 
 // payloadとajaxについて
