@@ -14,7 +14,7 @@ const workStatus = {
 // payloadとajaxについて
 const payLoad = (message) => {
     const xhr = new XMLHttpRequest();
-    const url = 'https://slack.com/api/chat.postMessage';
+    const url = `https://slack.com/api/chat.postMessage`;
     const data = `token=${slackInfo.slack_access_token}&channel=${slackInfo.channel_id}&text=${message}`;
 
     xhr.open('POST', url);
@@ -38,7 +38,7 @@ const postToSlack = () => {
     }, false);
     const clockOut = document.getElementsByClassName('record-btn-inner record-clock-out');
     clockOut[0].addEventListener('click', () => {
-        payLoad(workStatus.finish);
+        payLoad(workStatus.work_finish);
     }, false);
 
     window.alert(`${slackInfo.channel}チャンネルに打刻メッセージを送りました。`);

@@ -6,7 +6,7 @@
   "description": "King of timeとslackの拡張機能です。",
   "content_scripts": [
       {
-          "matches": [ "https://s2.kingtime.jp/independent/recorder/personal/" ],
+          "matches": [ "https://s3.kingtime.jp/independent/recorder2/personal/" ],
           "js": [ "./js/app.js" ]
       }
   ]
