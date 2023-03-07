@@ -12,10 +12,10 @@ const workStatus = {
 // payloadとajaxについて
 const payLoad = (message) => {
     const xhr = new XMLHttpRequest();
-    const url = 'https://slack.com/api/chat.postMessage?';
-    const data = url + `token=${slackInfo.slack_access_token}&channel=${slackInfo.channel_id}&text=${message}`;
+    const url = 'https://slack.com/api/chat.postMessage';
+    const data = `token=${slackInfo.slack_access_token}&channel=${slackInfo.channel_id}&text=${message}`;
 
-    xhr.open('POST', data);
+    xhr.open('POST', url);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onload = () => {
         if(xhr.status = 200) {
@@ -25,7 +25,7 @@ const payLoad = (message) => {
             console.log(`ステータス: ${xhr.status}`);
         }
     };
-    xhr.send(message);
+    xhr.send(data);
 };
 
 // ボタンをクリックしたタイミングで出勤状況を送信させる
@@ -39,3 +39,5 @@ const postToSlack = () => {
         payLoad(workStatus.finish);
     }, false);
 };
+
+postToSlack();
