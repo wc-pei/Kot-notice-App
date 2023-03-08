@@ -5,8 +5,8 @@ const slackInfo = {
 };
 
 const workStatus = {
-    work_start: '出勤',
-    work_finish: '退勤',
+    work_start: 'ChromeExtensionで出社を送信',
+    work_finish: 'ChromeExtensionで退勤を送信',
     remote_start: ':remote_work:',
     remote_finish: ':remotework_end_owari:'
 };
@@ -28,6 +28,7 @@ const payLoad = (message) => {
         }
     };
     xhr.send(data);
+    window.alert(`${slackInfo.channel}チャンネルに打刻メッセージを送りました。`);
 };
 
 // ボタンをクリックしたタイミングで出勤状況を送信させる
@@ -40,8 +41,6 @@ const postToSlack = () => {
     clockOut[0].addEventListener('click', () => {
         payLoad(workStatus.work_finish);
     }, false);
-
-    window.alert(`${slackInfo.channel}チャンネルに打刻メッセージを送りました。`);
 };
 
-postToSlack();
+setTimeout(postToSlack, 3000);
