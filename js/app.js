@@ -1,5 +1,5 @@
 const slackInfo = {
-    slack_access_token: 'xoxb-16597064195-4899975821603-OP6njl3kRhzfhlcK6B2MPyBD',
+    slack_access_token: 'xoxb-16597064195-4899975821603-EsqIKHMAki2iJIofk8oD8dCX',
     channel: '#times_pei',
     channel_id: 'C04RQ906YMT'
 };
@@ -11,11 +11,15 @@ const workStatus = {
     remote_finish: ':remotework_end_owari:'
 };
 
+setTimeout('postToSlack()', 3000);
+
 // payloadとajaxについて
 const payLoad = (message) => {
     const xhr = new XMLHttpRequest();
     const url = `https://slack.com/api/chat.postMessage`;
     const data = `token=${slackInfo.slack_access_token}&channel=${slackInfo.channel_id}&text=${message}`;
+    // const current = new Date();
+    // const engravingTime = `${current.getFullYear()}年${current.getMonth()+1}月${current.getDate()}日${current.getHours()}時${current.getMinutes()}分`;
 
     xhr.open('POST', url);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -42,5 +46,3 @@ const postToSlack = () => {
         payLoad(workStatus.work_finish);
     }, false);
 };
-
-setTimeout(postToSlack, 3000);
